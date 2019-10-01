@@ -3,13 +3,14 @@ import SuggestionRound from './rounds/SuggestionRound';
 import EliminationRound from './rounds/EliminationRound';
 import Winner from './rounds/Winner';
 
-export default () => {
+export default function Room(props) {
   const [round, setRound] = useState('suggestion');
+  const roomCode = props.location.state;
 
   let screen = <p>Welcome to the Room</p>;
   switch(round) {
     case 'suggestion':
-      screen = <SuggestionRound selector={setRound}/>;
+      screen = <SuggestionRound selector={setRound} roomCode={roomCode.roomCode}/>;
       break;
     case 'elimination':
       screen = <EliminationRound selector={setRound}/>;
@@ -31,3 +32,4 @@ export default () => {
     </>
   )
 }
+

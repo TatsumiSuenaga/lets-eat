@@ -86,8 +86,8 @@ export default () => {
         <TitleWrapper>
           <Title>Spending more time</Title>
           <Title>deciding your next meal</Title>
-          <Title>than eating it &#129320;?</Title>
-          <Subtitle>Quit dilly dallying &#129318; and let's get to eating!</Subtitle>
+          <Title>than eating it <span role="img" aria-label="confused">&#129320;</span>?</Title>
+          <Subtitle>Quit dilly dallying <span role="img" aria-label="facepalm">&#129318;</span> and let's get to eating!</Subtitle>
         </TitleWrapper>
       </Panel>
       <Panel right>
@@ -101,16 +101,12 @@ export default () => {
             />
           <Button as={Link} to={{
             pathname: '/room',
-            state: {
-              roomCode: {roomCode}
-            }
+            state: {roomCode}
             }}>ENTER</Button>
         </Row>
         <Button as={Link} to={{
           pathname: '/room',
-          state: {
-            roomCode: {roomCode} // create a unique room code
-          }
+          state: {roomCode} // create a unique room code
           }}>No Code? Create a room!</Button>
       </Panel>
     </>
