@@ -1,35 +1,118 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState } from 'react';
+import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const Row = styled.div`
   display: flex;
-  flex-flow: row;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
 `
-const Title = styled.h3`
-  margin-bottom: 10px;
+const TitleWrapper = styled.div`
+  padding: 10%;
+`
+const Title = styled.h1`
+  text-align: left;
+  margin: 5px 0 0 5px;
 `
 
-const Subtitle = styled.h2`
-  margin: 5px 0;
+const Subtitle = styled.h1`
+  text-align: left;
+  margin-top: 60px;
 `
 
 const Label = styled.label`
-  margin: 10px 5px;
+  margin: 0.5em;
+  font-size: 25px;
+`
+
+const Input = styled.input`
+  margin-right: 5px; 
+  padding: 0.5em;
+  background: #FFF;
+  border: none;
+  border-radius: 3px;
+  font-size: 25px;
+  width: 100px;
+  text-transform: uppercase;
+  text-align: center;
+`
+
+const Panel = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  // background: #FFF;
+
+  ${props => props.right && css`
+    border-left: 2px solid black;
+  `}
+`
+
+const Button = styled.button`
+  min-width: 50px;
+  background-color:#ec4079;
+	-moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  border: 1px solid #ec4079;
+	border-radius:10px;
+	cursor:pointer;
+	color:#ffffff;
+	font-size: 20px;
+	padding:16px 31px;
+	text-decoration:none;
+  text-shadow:0px 1px 0px #2f6627;
+  
+  :hover {
+    background-color:#b4004e;
+  }
+
+  :active {
+    position:relative;
+	  top:1px;
+  }
 `
 
 export default () => {
+  const [roomCode, setRoomCode] = useState('CODE');
+
   return (
     <>
-      <Title>Spending more time deciding your next meal than eating it?</Title>
-      <Subtitle>Quit dilly dallying and let's get to eating!</Subtitle>
-      <Row>
-        <Label>Enter Room Code</Label>
-        <input/>
-        <button>enter</button>
-      </Row>
-      <Link to='/room'>No Code? Create a room!</Link>
+      <Panel>
+        <TitleWrapper>
+          <Title>Spending more time</Title>
+          <Title>deciding your next meal</Title>
+          <Title>than eating it &#129320;?</Title>
+          <Subtitle>Quit dilly dallying &#129318; and let's get to eating!</Subtitle>
+        </TitleWrapper>
+      </Panel>
+      <Panel right>
+        <Row>
+          <Label>Enter Room Code: </Label>
+          <Input
+            type="text"
+            value={roomCode}
+            maxLength="4"
+            onChange={e => setRoomCode(e.target.value)}
+            />
+          <Button as={Link} to={{
+            pathname: '/room',
+            state: {
+              roomCode: {roomCode}
+            }
+            }}>ENTER</Button>
+        </Row>
+        <Button as={Link} to={{
+          pathname: '/room',
+          state: {
+            roomCode: {roomCode} // create a unique room code
+          }
+          }}>No Code? Create a room!</Button>
+      </Panel>
     </>
   )
 }

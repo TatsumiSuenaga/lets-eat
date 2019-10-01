@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Container = styled.div`
   display: flex;
-  flow: row;
+  flex-flow: row;
 `
-export default () => {
+export default function SuggestionRoud ({ selector }) {
 
   return (
     <Container>
@@ -16,4 +17,8 @@ export default () => {
       {/* <SuggestionModal /> */}
     </Container>
   )
+}
+
+SuggestionRoud.propTypes = {
+  selector: PropTypes.func.isRequired,
 }

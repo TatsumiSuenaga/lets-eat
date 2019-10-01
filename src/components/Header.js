@@ -5,7 +5,7 @@ const Header = styled.div`
   display: flex;
   flex-flow: row;
   justify-content: left;
-  border-bottom: 1px solid #ffc107;
+  border-bottom: 2px solid black;
 `
 const AppTitle = styled.h1`
   font-family: Mansalva;

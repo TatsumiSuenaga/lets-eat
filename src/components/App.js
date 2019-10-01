@@ -17,9 +17,9 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 60%;
+  flex-direction: row;
+  height: 90%;
+  width: 100%;
 `
 function App() {
   return (
