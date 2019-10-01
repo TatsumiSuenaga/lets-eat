@@ -8,10 +8,22 @@ const Container = styled.div`
   flex-direction: column;
   width: 50%;
 `
+const Header = styled.h2`
+  text-decoration: underline;
+`
+const List = styled.ul`
+  margin: 0;
+  padding: 0;
+  list-style: none;
+`
+
 export default function SuggestionList ({ suggestionList }) {
   return (
     <Container>
-      {suggestionList.map((suggestion) => <Suggestion suggestion={suggestion} key={suggestion.id} />)}
+      <Header>Suggestions</Header>
+      <List>
+        {suggestionList.map((suggestion) => <Suggestion suggestion={suggestion} key={suggestion.id} />)}
+      </List>
     </Container>
   )
 }
