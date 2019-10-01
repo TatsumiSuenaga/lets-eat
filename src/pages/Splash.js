@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
+import GenerateRoomCode from '../shared/utils/roomCodeGenerator';
 
 const Row = styled.div`
   display: flex;
@@ -78,7 +79,7 @@ const Button = styled.button`
 `
 
 export default () => {
-  const [roomCode, setRoomCode] = useState('CODE');
+  const [roomCode, setRoomCode] = useState(GenerateRoomCode());
 
   return (
     <>
