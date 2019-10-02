@@ -18,12 +18,7 @@ const List = styled.ul`
   font-size: 2em;
 `
 
-export default function SuggestionList ({ suggestionList, setList }) {
-  const remove = id => {
-    let tmp = suggestionList.slice();
-    tmp = tmp.filter(suggestion => suggestion.id !== id);
-    setList([...tmp]);
-  }
+export default function SuggestionList ({ suggestionList, remove }) {
   return (
     <Container>
       <Header>Suggestions</Header>
@@ -36,5 +31,5 @@ export default function SuggestionList ({ suggestionList, setList }) {
 
 SuggestionList.propTypes = {
   suggestionList: PropTypes.array.isRequired,
-  setList: PropTypes.func.isRequired
+  remove: PropTypes.func.isRequired
 }

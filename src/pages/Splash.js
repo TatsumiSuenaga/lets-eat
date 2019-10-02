@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 import GenerateRoomCode from '../shared/utils/roomCodeGenerator';
 import Button from '../styles/Button';
+import Input from '../styles/Input';
 
 const Row = styled.div`
   display: flex;
@@ -27,18 +28,6 @@ const Subtitle = styled.h1`
 const Label = styled.label`
   margin: 0.5em;
   font-size: 25px;
-`
-
-const Input = styled.input`
-  margin-right: 5px; 
-  padding: 0.5em;
-  background: #FFF;
-  border: none;
-  border-radius: 3px;
-  font-size: 25px;
-  width: 100px;
-  text-transform: uppercase;
-  text-align: center;
 `
 
 const Panel = styled.div`

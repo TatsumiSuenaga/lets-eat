@@ -22,5 +22,10 @@ const Button = styled.button`
     position:relative;
     top:1px;
   }
+
+  :disabled {
+    background: #dddddd;
+    color: black;
+  }
 `
 export default Button;

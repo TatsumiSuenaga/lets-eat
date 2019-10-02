@@ -61,7 +61,7 @@ const Title = styled.h1`
   margin: 0;
   background-color: transparent; 
   color: $primary-font-color;
-  font-weight: 100;
+  font-weight: 700;
   width: 100%;
   font-size: 1em !important;
   text-align: center;
