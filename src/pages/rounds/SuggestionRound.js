@@ -2,14 +2,31 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import SuggestionList from '../../components/SuggestionList';
+import { ELIMINATION_ROUND } from '../../shared/constants';
+import Button from '../../styles/Button';
 
 const Container = styled.div`
   display: flex;
   flex-flow: column;
-  justify-content: center;
   align-items: center;
   width: 100%
 `
+const ButtonPanel = styled.div`
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+`
+
+const AddButton = styled(Button)`
+  margin-left: 10px;
+  background-color:#7cb342;
+  border: 1px solid #7cb342;
+  
+  :hover {
+    background-color:#4b830d;
+  }
+`
+
 export default function SuggestionRound ({ selector, roomCode }) {
   const [suggestionList, setSuggestionList] = useState([
     {
@@ -43,9 +60,12 @@ export default function SuggestionRound ({ selector, roomCode }) {
         can't think of way of forcing users to exit to next screen*/}
       <h1>ROOM CODE: {roomCode}</h1>
       {/* <PartyList /> wishlist item*/}
-      <SuggestionList suggestionList={suggestionList}/> 
+      <SuggestionList suggestionList={suggestionList} setList={setSuggestionList}/> 
       {/* <SuggestionModal /> */}
-      {/* <EndSuggestionRound /> */}
+      <ButtonPanel>
+        <Button onClick={() => selector(ELIMINATION_ROUND)}>Let's Choose!</Button>
+        <AddButton >Add Suggestion</AddButton>
+      </ButtonPanel>
     </Container>
   )
 }

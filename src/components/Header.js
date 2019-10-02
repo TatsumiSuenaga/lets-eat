@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Header = styled.div`
   display: flex;
@@ -12,10 +13,15 @@ const AppTitle = styled.h1`
   margin-bottom: 15px;
   margin-top: 15px;
   margin-left: 7%;
+  text-decoration: none;
+  font-size: 2em;
+  font-weight: 700;
+  
+  color: black;
 `
 
 export default () => (
   <Header>
-    <AppTitle>Let's Eat!</AppTitle>
+    <AppTitle as={Link} to={'/'}>Let's Eat!</AppTitle>
   </Header>
 )
