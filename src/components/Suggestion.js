@@ -21,15 +21,16 @@ const RemoveButton = styled(Button)`
     background-color: #9a0007;
   }
 `
-export default function Suggestion({ suggestion }) {
+export default function Suggestion({ suggestion, remove }) {
   return (
     <ListItem>
       {suggestion.name}
-      <RemoveButton><i className="material-icons">clear</i></RemoveButton>
+      <RemoveButton onClick={() => remove(suggestion.id)}><i className="material-icons md-36">clear</i></RemoveButton>
     </ListItem>
   )
 }
 
 Suggestion.propTypes = {
   suggestion: PropTypes.object.isRequired,
+  remove: PropTypes.func.isRequired
 }

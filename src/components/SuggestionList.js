@@ -18,12 +18,17 @@ const List = styled.ul`
   font-size: 2em;
 `
 
-export default function SuggestionList ({ suggestionList }) {
+export default function SuggestionList ({ suggestionList, setList }) {
+  const remove = id => {
+    let tmp = suggestionList.slice();
+    tmp = tmp.filter(suggestion => suggestion.id !== id);
+    setList([...tmp]);
+  }
   return (
     <Container>
       <Header>Suggestions</Header>
       <List>
-        {suggestionList.map((suggestion) => <Suggestion suggestion={suggestion} key={suggestion.id} />)}
+        {suggestionList.map((suggestion) => <Suggestion suggestion={suggestion} key={suggestion.id} remove={remove}/>)}
       </List>
     </Container>
   )
@@ -31,4 +36,5 @@ export default function SuggestionList ({ suggestionList }) {
 
 SuggestionList.propTypes = {
   suggestionList: PropTypes.array.isRequired,
+  setList: PropTypes.func.isRequired
 }
