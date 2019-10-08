@@ -1,0 +1,9 @@
+const resolvers = {
+  Query: {
+    room: (args) => {
+      return room(args.id);
+    }
+  }
+}
+
+export default resolvers;

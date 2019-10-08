@@ -1,0 +1,53 @@
+const typeDefs = `
+  type Room {
+    id: String!
+    createdAt: DateTime! @createdAt
+    round: String!
+    // party: [User]
+    suggestions: [Suggestion]
+  }
+
+  // type User {
+  //   id: ID!
+  //   name: String!
+  //   suggestions: [Suggestion]
+  // }
+
+  type Suggestion {
+    id: ID!
+    name: String!
+    url: String
+    category: String
+    // suggestedBy: User
+    // votes: [Vote]
+    votes: Number!
+    roomId: String!
+  }
+
+  // type Vote {
+  //   id: ID! @id
+  //   suggestion: Suggestion!
+  //   user: User!
+  // }
+
+  type Query {
+    room(id: String!): Room!
+  }
+
+  type Mutation {
+    createSuggestion(name: String!, url: String, category: String, roomId: String!): Suggestion
+    updateSuggestion(name: String!, url: String, category: String, roomId: String!): Suggestion
+    removeSuggestion(id: ID!, roomId: String!): Suggestion
+    voteSuggestion(id: ID!, roomId: String!): Suggestion
+    removeRoom:(id: String!): Room
+  }
+
+  type Subscription {
+    newSuggestion: Suggestion
+    updatedSuggestion: Suggestion
+    newVote: Suggestion
+    newRound: Room
+
+  }
+`
+export default typeDefs;
